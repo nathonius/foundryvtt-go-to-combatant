@@ -1,0 +1,17 @@
+{
+  "id": "go-to-combatant",
+  "title": "Go to Combatant",
+  "description": "Click on a combatant in a combat to move your view to that token, even in another scene.",
+  "authors": [
+    {
+      "name": "OfficerHalf",
+      "url": "https://github.com/OfficerHalf"
+    }
+  ],
+  "version": "1.0.0",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "10"
+  },
+  "esmodules": ["index.js"]
+}

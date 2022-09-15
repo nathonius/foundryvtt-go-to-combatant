@@ -1,0 +1,19 @@
+{
+  "name": "foundryvtt-go-to-combatant",
+  "version": "1.0.0",
+  "description": "Click on a combatant in a combat to move your view to that token, even in another scene.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc && cp shim.js dist && cp module.json dist"
+  },
+  "author": "OfficerHalf",
+  "license": "MIT",
+  "keywords": [
+    "foundryvtt",
+    "foundry-vtt"
+  ],
+  "devDependencies": {
+    "@league-of-foundry-developers/foundry-vtt-types": "^9.280.0",
+    "typescript": "^4.8.3"
+  }
+}
