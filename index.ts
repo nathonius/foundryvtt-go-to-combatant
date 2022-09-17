@@ -47,13 +47,31 @@ async function new_onCombatantMouseDown(
   // Handle double-left click to open sheet
   const dt = now - this._clickTime;
   this._clickTime = now;
-  if (dt <= 250) return combatant.actor?.sheet!.render(true);
+  if (dt <= 250) {
+    await combatant.setFlag("go-to-combatant", "shouldChangeScene", false);
+    return combatant.actor?.sheet!.render(true);
+  }
 
   // Navigate to scene if it's not the current scene
   if ((combatant as any).sceneId !== getGame().scenes!.viewed!.id) {
-    const scene = getGame().scenes!.get((combatant as any).sceneId);
-    if (scene) {
-      await scene.view();
+    // Wait to make sure this isn't a double click
+    await combatant.setFlag("go-to-combatant", "shouldChangeScene", true);
+    await new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(null);
+      }, 250);
+    });
+    const shouldChangeScene = combatant.getFlag(
+      "go-to-combatant",
+      "shouldChangeScene"
+    ) as boolean;
+
+    // It wasn't a double click
+    if (shouldChangeScene) {
+      const scene = getGame().scenes!.get((combatant as any).sceneId);
+      if (scene) {
+        await scene.view();
+      }
     }
   }
 
