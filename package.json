@@ -1,6 +1,6 @@
 {
   "name": "foundryvtt-go-to-combatant",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "Click on a combatant in a combat to move your view to that token, even in another scene.",
   "main": "index.js",
   "scripts": {
